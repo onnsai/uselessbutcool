@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>uselessbutcool</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050606'/%3E%3Cpath d='M16 48V18h8v30zm12 0V10h8v38zm12 0V25h8v23z' fill='%2324f0ff'/%3E%3Cpath d='M16 48h32' stroke='%23ff3f8e' stroke-width='5'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="stage" data-state="idle">
+      <canvas id="backdrop" class="backdrop" aria-hidden="true"></canvas>
+
+      <section class="hud">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div>
+            <p class="eyebrow">uselessbutcool</p>
+            <h1>The Deep Deck</h1>
+          </div>
+        </div>
+
+        <div class="hud-actions" aria-label="视觉开关">
+          <button id="glassesToggle" class="fx-toggle" type="button" aria-pressed="false">
+            Glasses Off
+          </button>
+          <button id="startButton" class="start-button" type="button">
+            Start Camera + Audio
+          </button>
+        </div>
+      </section>
+
+      <section class="camera-panel" aria-label="手势摄像头">
+        <video id="camera" playsinline muted></video>
+        <canvas id="faceMask" class="face-mask"></canvas>
+        <canvas id="handOverlay"></canvas>
+        <div class="camera-status">
+          <span id="trackingDot" class="status-dot"></span>
+          <span id="trackingLabel">等待授权</span>
+        </div>
+      </section>
+
+      <section class="visual-core" aria-label="手势驱动 3D 视觉">
+        <canvas id="visualizer"></canvas>
+        <div class="gesture-readout">
+          <span id="gestureName">IDLE</span>
+          <span id="gestureHint">1-4 根手指引入 stems，5 根手指打开 DJ boost</span>
+        </div>
+      </section>
+
+      <section class="layer-panel" aria-label="The Deep 五层音轨">
+        <div class="layer-title">
+          <span>THE DEEP</span>
+          <strong>5 LAYERS</strong>
+        </div>
+        <div id="layerSlots" class="layer-slots"></div>
+      </section>
+
+      <aside class="meters" aria-label="电平显示">
+        <div class="meter-header">
+          <span>LEVEL</span>
+          <strong id="bpmValue">128</strong>
+        </div>
+        <div id="meterStack" class="meter-stack"></div>
+        <div class="signal-grid" aria-label="系统信号">
+          <span data-signal="layers">LAYER <strong id="signalLayers">0/5</strong></span>
+          <span data-signal="volume">GAIN <strong id="signalVolume">72%</strong></span>
+          <span data-signal="face">FACE <strong id="signalFace">OFF</strong></span>
+          <span data-signal="scratch">CUT <strong id="signalScratch">0%</strong></span>
+          <span data-signal="model">MODEL <strong id="signalModel">0%</strong></span>
+          <span data-signal="control">CTRL <strong id="signalControl">OFF</strong></span>
+        </div>
+        <div class="model-debug-card" aria-label="3D 模型调试信息">
+          <div class="model-debug-head">
+            <span>MODEL POS</span>
+          </div>
+          <div class="model-debug-grid">
+            <span>SCALE <strong id="modelDebugScale">0.00</strong></span>
+            <span>SUMMON <strong id="modelDebugSummon">0%</strong></span>
+            <span>X <strong id="modelDebugX">0.00</strong></span>
+            <span>Y <strong id="modelDebugY">0.00</strong></span>
+            <span>Z <strong id="modelDebugZ">0.00</strong></span>
+            <span>CAM Z <strong id="modelDebugCameraZ">8.00</strong></span>
+            <span>ROT Y <strong id="modelDebugRotY">0.00</strong></span>
+            <span>ROT Z <strong id="modelDebugRotZ">0.00</strong></span>
+            <span>SPREAD <strong id="modelDebugSpread">0%</strong></span>
+            <span>DEPTH <strong id="modelDebugDepth">0%</strong></span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="terminal" aria-label="调试终端">
+        <div class="terminal-bar">
+          <span>debug://gesture.deck</span>
+          <span id="fpsReadout">-- fps</span>
+        </div>
+        <pre id="debugLog"></pre>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
