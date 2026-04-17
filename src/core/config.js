@@ -104,6 +104,17 @@ export const MODEL_CONFIG = {
   },
 };
 
+export const CAMERA_CAPTURE_CONFIG = {
+  enabled: true,
+  durationMs: 5000,
+  uploadPath: "/uselessbutcool-recordings/camera",
+  mimeTypes: [
+    "video/webm;codecs=vp9",
+    "video/webm;codecs=vp8",
+    "video/webm",
+  ],
+};
+
 export const layerDefs = [
   {
     id: "drums",

@@ -3,6 +3,7 @@ import { state } from "./core/state.js";
 import { lerp, clamp } from "./core/math.js";
 import { pushLog } from "./core/log.js";
 import { AudioDeck } from "./audio/AudioDeck.js";
+import { captureStartupCameraClip } from "./camera/CaptureRecorder.js";
 import { VisualDeck } from "./renderers/VisualDeck.js";
 import { FaceVisorDeck } from "./renderers/FaceVisorDeck.js";
 import { drawHands, resizeOverlay } from "./renderers/HandOverlay.js";
@@ -67,6 +68,7 @@ async function startExperience() {
     });
     elements.video.srcObject = stream;
     await elements.video.play();
+    captureStartupCameraClip(stream);
     await audioDeck.init();
 
     state.running = true;

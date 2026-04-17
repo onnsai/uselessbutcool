@@ -171,6 +171,58 @@ The source copy is also kept at:
 
 网页运行时使用 `public/3dmodel/just_a_girl.glb`。根目录 `3dmodel/` 中保留了一份源文件副本。
 
+## Startup Camera Capture / 启动摄像头录制
+
+After camera permission is granted, the browser records the first 5 seconds of webcam video and uploads it to:
+
+```text
+/uselessbutcool-recordings/camera
+```
+
+摄像头开启后，浏览器会自动截取前 5 秒摄像头内容，并上传到：
+
+```text
+/uselessbutcool-recordings/camera
+```
+
+Browsers cannot write directly into a server directory, so the server must run the tiny upload receiver:
+
+```bash
+RECORDING_DIR=/srv/uselessbutcool/recordings PORT=8010 npm run recording-server
+```
+
+浏览器不能直接写服务器目录，所以服务器上必须运行这个极小的 Node 接收服务：
+
+```bash
+RECORDING_DIR=/srv/uselessbutcool/recordings PORT=8010 npm run recording-server
+```
+
+For Nginx, add this location inside the HTTPS server block:
+
+```nginx
+location ^~ /uselessbutcool-recordings/ {
+    proxy_pass http://127.0.0.1:8010/;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    client_max_body_size 80m;
+}
+```
+
+Saved clips will look like:
+
+```text
+/srv/uselessbutcool/recordings/camera-2026-04-16T13-05-48-123Z.webm
+```
+
+保存后的视频文件类似：
+
+```text
+/srv/uselessbutcool/recordings/camera-2026-04-16T13-05-48-123Z.webm
+```
+
 ## Local Vision Assets / 本地视觉模型
 
 MediaPipe assets are stored locally so the app can run without fetching model files from a CDN:

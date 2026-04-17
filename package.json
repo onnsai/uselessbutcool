@@ -7,7 +7,8 @@
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0 --port 4173",
-    "inspect": "node scripts/inspect-page.mjs"
+    "inspect": "node scripts/inspect-page.mjs",
+    "recording-server": "node scripts/recording-server.mjs"
   },
   "keywords": [],
   "author": "",
