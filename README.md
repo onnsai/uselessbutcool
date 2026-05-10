@@ -1,5 +1,12 @@
 # uselessbutcool
 
+[![Stars](https://img.shields.io/github/stars/onnsai/uselessbutcool?style=for-the-badge&color=00e5ff)](https://github.com/onnsai/uselessbutcool/stargazers)
+[![Forks](https://img.shields.io/github/forks/onnsai/uselessbutcool?style=for-the-badge&color=7cff00)](https://github.com/onnsai/uselessbutcool/network/members)
+[![Issues](https://img.shields.io/github/issues/onnsai/uselessbutcool?style=for-the-badge&color=ff4d6d)](https://github.com/onnsai/uselessbutcool/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/onnsai/uselessbutcool?style=for-the-badge&color=ffd166)](https://github.com/onnsai/uselessbutcool/commits)
+[![Repo Size](https://img.shields.io/github/repo-size/onnsai/uselessbutcool?style=for-the-badge&color=a78bfa)](https://github.com/onnsai/uselessbutcool)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-00c2ff?style=for-the-badge)](https://github.com/onnsai/uselessbutcool/pulls)
+
 `uselessbutcool` is a no-backend browser experiment that turns webcam hand gestures into a DJ deck, neon HUD, and gesture-driven 3D avatar scene.
 
 `uselessbutcool` 是一个纯前端实验项目：用电脑摄像头识别手势，把手势变成 DJ 分轨控制、霓虹 HUD、透明摄像头叠加层，以及双手控制的 3D 模型舞台。
