@@ -15,6 +15,8 @@ The goal is simple: cool, playful, visual, loud.
 
 项目目标也很简单：cool，好看，好玩，好听。
 
+The project is open source. Contributions are welcome.
+
 ## Features / 功能
 
 - Webcam hand tracking with local MediaPipe Hands assets.
