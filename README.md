@@ -16,6 +16,7 @@ The goal is simple: cool, playful, visual, loud.
 项目目标也很简单：cool，好看，好玩，好听。
 
 The project is open source. Contributions are welcome.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the quickest way to get started.
 
 ## Features / 功能
 
